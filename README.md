@@ -15,7 +15,9 @@ A rota de edição só é acessivel por autenticação.
 
 ## Comando a executar:
 php artisan migrate --seed
+
 php artisan db:seed --class=UsersSeeder
+
 php artisan db:seed --class=ContactsSeeder
 
 ## About Laravel
