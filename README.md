@@ -7,6 +7,12 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Instruções:
+
+A rota que pose acessar a listagem de Contatos é http://localhost/list ou : http://ailtonconceicaolv.eu1.alfasoft.pt/list
+
+A rota de edição só é acessivel por autenticação.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
