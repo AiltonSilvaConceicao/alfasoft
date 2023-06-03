@@ -30,6 +30,7 @@
                                         <p class="card-text"><strong>E-mail:</strong> {{ $dados->email }}</p>
 
                                         <div class="mt-4">
+                                            <a href="{{ route ('contacts.index') }}" class="btn btn-info btn-default" id="redirect"><i class="fa fa-reply"></i> Voltar a Lista</a>
                                             <a href="{{ route('contacts.edit', $dados->id) }}" class="btn btn-success">Editar</a>
                                             <a href="{{ route('contacts.confirm', ['id' => $dados->id]) }}"  class="btn btn-danger">Excluir</a>
                                         </div>

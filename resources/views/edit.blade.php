@@ -49,6 +49,7 @@
                                 <input type="email" class="form-control" name="email" id="email" value="{{ $dados->email ?? '' }}" placeholder="Digite o email">
                               </div>
                               <div class="col-md-12 d-flex justify-content-end">
+                                <a href="{{ route ('contacts.index') }}" class="btn btn-info btn-default" id="redirect"><i class="fa fa-reply"></i> Voltar a Lista</a> &nbsp;&nbsp; &nbsp;
                                 <button type="submit" class="btn btn-primary">Salvar</button>
                               </div>
                             </div>
