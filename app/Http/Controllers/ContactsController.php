@@ -41,6 +41,11 @@ class ContactsController extends Controller
         return view('create');
     }
 
+    public function confirm($id)
+    {
+        return view('confirm', compact('id'));
+    }
+
     /**
      * Inser register.
      *
