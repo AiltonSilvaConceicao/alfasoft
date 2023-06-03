@@ -14,6 +14,22 @@ class ContactsController extends Controller
      *
      * @return void
      */
+    public function dashboard()
+    {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+
+        $dados = Contacts::all();
+
+        return view('list', compact('dados'));
+    }
+
+    /**
+     * Method for listing contacts
+     *
+     * @return void
+     */
     public function index()
     {
         $dados = Contacts::all();
