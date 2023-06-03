@@ -13,6 +13,11 @@ A rota que pose acessar a listagem de Contatos é http://localhost/list ou : htt
 
 A rota de edição só é acessivel por autenticação.
 
+## Comando a executar:
+php artisan migrate --seed
+php artisan db:seed --class=UsersSeeder
+php artisan db:seed --class=ContactsSeeder
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
