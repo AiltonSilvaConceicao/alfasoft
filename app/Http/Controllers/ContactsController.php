@@ -66,12 +66,19 @@ class ContactsController extends Controller
         $strlen_contact = strlen($input['contact']);
 
         if ($strlen_name < 5) {
-            $error = 'O nome do Usuário é menor que 5! Tente novamente!';
+            $error = 'O nome do Usuário é menor que 5 caracteres! Tente novamente!';
             return view('create')->with('error', $error);
         }
 
         if ($strlen_contact < 9) {
-            $error = 'O contato do Usuário é menor que 9! Tente novamente!';
+            $error = 'O contato do Usuário é menor que 9 caracteres! Tente novamente!';
+            return view('create')->with('error', $error);
+        }
+
+        $validMail = $this->valida_email($input['email']);
+
+        if (!$validMail) {
+            $error = 'Esse email digitado: ' . $input['email'] . ' não é válido !';
             return view('create')->with('error', $error);
         }
 
@@ -99,6 +106,26 @@ class ContactsController extends Controller
     public function update(Request $request, $id)
     {
         $input = $request->all();
+
+        $strlen_name = strlen($input['name']);
+        $strlen_contact = strlen($input['contact']);
+
+        if ($strlen_name < 5) {
+            $error = 'O nome do Usuário é menor que 5 caracteres! Tente novamente!';
+            return view('create')->with('error', $error);
+        }
+
+        if ($strlen_contact < 9) {
+            $error = 'O contato do Usuário é menor que 9 caracteres! Tente novamente!';
+            return view('create')->with('error', $error);
+        }
+
+        $validMail = $this->valida_email($input['email']);
+
+        if (!$validMail) {
+            $error = 'Esse email digitado: ' . $input['email'] . ' não é válido !';
+            return redirect()->route('contacts.edit', ['id' => $id])->withErrors(['error' => $error]);
+        }
         $contact = new Contacts();
 
 
@@ -110,6 +137,17 @@ class ContactsController extends Controller
             $error = 'Usuário Não foi atualizado! Tente novamente';
             return view('unsuccess', compact('error'));
         }
+    }
+
+    public function details($id)
+    {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+        $contact = new Contacts();
+        $dados = $contact->find($id);
+
+        return view('details', compact('dados', 'id'));
     }
 
     public function delete($id)
@@ -124,6 +162,32 @@ class ContactsController extends Controller
         } else {
             $error = 'Usuário Não foi atualizado! Tente novamente';
             return view('unsuccess', compact('error'));
+        }
+    }
+
+    /**
+     * Validação de e-mail
+     *
+     * @param [type] $email
+     * @return void
+     */
+    public function valida_email($email)
+    {
+        $email = str_replace(' ', '', $email);
+        $email = trim($email);
+        /* Verifica se o email e valido */
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+            /* Obtem o dominio do email */
+            list($usuario, $dominio) = explode('@', $email);
+
+            /* Faz um verificacao de DNS no dominio */
+            if (checkdnsrr($dominio, 'MX') == 1){
+                return TRUE;
+            } else {
+                return FALSE;
+            }
+        } else {
+            return FALSE;
         }
     }
 }

@@ -23,6 +23,7 @@ Route::get('/list', [ContactsController::class, 'index'])->name('contacts.index'
 Route::get('/edit/{id}', [ContactsController::class, 'edit'])->name('contacts.edit');
 Route::get('/delete/{id}', [ContactsController::class, 'delete'])->name('contacts.delete');
 Route::get('/confirm/{id}', [ContactsController::class, 'confirm'])->name('contacts.confirm');
+Route::get('/details/{id}', [ContactsController::class, 'details'])->name('contacts.details');
 Route::get('/create', [ContactsController::class, 'create'])->name('contacts.create');
 Route::post('/store', [ContactsController::class, 'store'])->name('contacts.store');
 Route::post('/update{id}', [ContactsController::class, 'update'])->name('contacts.update');

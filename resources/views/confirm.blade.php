@@ -26,7 +26,7 @@
                             &nbsp;
                         </div>
                         <div class="col-xs-2 col-md-2" style="text-align: right;">
-                            <a href="{{ route ('contacts.index') }}" class="btn btn-info btn-default" id="redirect"><i class="fa fa-reply"></i> Voltar</a>
+                            <a href="{{ route ('contacts.index') }}" class="btn btn-info btn-default" id="redirect"><i class="fa fa-reply"></i> Voltar a Lista</a>
                         </div>
                         <div class="col-xs-2 col-md-2" style="text-align: right;">
                             <a href="{{ route ('contacts.delete', ['id' => $id]) }}" class="btn btn-info btn-block" id="redirect"><i class="fa fa-trash"></i> Delete</a>

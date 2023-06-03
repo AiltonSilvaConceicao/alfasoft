@@ -23,6 +23,15 @@
                             {{ $error ?? ''}}
                         </div>
                     @endif
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form name="form" action="{{ route('contacts.update', ['id' => $contactId]) }}" method="POST">
                         @csrf
                         <div class="d-flex flex-column" style="min-height: 100vh;">

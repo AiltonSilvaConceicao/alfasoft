@@ -58,7 +58,7 @@
                                                 <td> {{ $dado->name ?? ''}}</td>
                                                 <td> {{ $dado->contact ?? ''}}</td>
                                                 <td> {{ $dado->email ?? ''}}</td>
-                                                <td> <a href="{{ route('contacts.edit', ['id' => $dado->id]) }}" class="btn btn-primary btn-sm">Edit</a>  <a href="{{ route('contacts.confirm', ['id' => $dado->id])}}" class="btn btn-danger btn-sm">Delete</a></td>
+                                                <td> <a href="{{ route('contacts.details', ['id' => $dado->id]) }}" class="btn btn-default btn-sm">Details</a> <a href="{{ route('contacts.edit', ['id' => $dado->id]) }}" class="btn btn-primary btn-sm">Edit</a>  <a href="{{ route('contacts.confirm', ['id' => $dado->id])}}" class="btn btn-danger btn-sm">Delete</a></td>
                                             </tr>
                                             @php
                                             $i++;
