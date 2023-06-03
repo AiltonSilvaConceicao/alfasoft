@@ -20,14 +20,16 @@
                 <div class="max-w-xl">
                     <div class="row">
                         <div class="container mt-4">
-                            <h1>Usuário ID: {{ $id ?? ''}}</h1>
+                            <h3>Contato ID: {{ $id ?? ''}}</h3>
 
                             @if ($dados)
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ $dados->name }}</h5>
+                                        <h5 class="card-title"><strong>Nome:</strong> {{ $dados->name }}</h5>
                                         <p class="card-text"><strong>Contato:</strong> {{ $dados->contact }}</p>
                                         <p class="card-text"><strong>E-mail:</strong> {{ $dados->email }}</p>
+                                        <p class="card-text"><strong>Data de Cadastro:</strong> {{ date('d/m/Y H:i:s', strtotime($dados->created_at) ?? '') }}</p>
+                                        <p class="card-text"><strong>Última Atualização:</strong> {{ date('d/m/Y H:i:s', strtotime($dados->updated_at) ?? '') }}</p>
 
                                         <div class="mt-4">
                                             <a href="{{ route ('contacts.index') }}" class="btn btn-info btn-default" id="redirect"><i class="fa fa-reply"></i> Voltar a Lista</a>
