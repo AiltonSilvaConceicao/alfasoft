@@ -43,6 +43,9 @@ class ContactsController extends Controller
 
     public function confirm($id)
     {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
         return view('confirm', compact('id'));
     }
 
@@ -153,7 +156,6 @@ class ContactsController extends Controller
     public function delete($id)
     {
         $contact = new Contacts();
-
 
         $save = $contact->deleteData($id);
 
