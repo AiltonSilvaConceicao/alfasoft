@@ -11,7 +11,9 @@
 
 A rota que pose acessar a listagem de Contatos é http://localhost/list ou : http://ailtonconceicaolv.eu1.alfasoft.pt/list
 
-A rota de edição só é acessivel por autenticação.
+As demais rotas de edição ou deleção só são acessivel por autenticação.
+
+Obs.: Para que se diferencie o usuário logado, diferencia-se a rota / pois, senão d-ase a impressão de que não deslogou.
 
 ## Comando a executar:
 php artisan migrate --seed
